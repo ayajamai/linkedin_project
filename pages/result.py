@@ -11,7 +11,7 @@ from pages.fourth import third_input
 
 def concat_text(first_input, second_input, third_input) :
     sub_text = [str(first_input) + str(second_input) + str(third_input)]
-    return pd.DataFrame(sub_text)
+    return sub_text
 
 sub = concat_text(first_input, second_input, third_input)
 

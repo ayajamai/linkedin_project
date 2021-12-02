@@ -8,9 +8,6 @@ PATH_TO_LOCAL_MODEL = 'model.joblib'
 app = FastAPI()
 
 # define a root `/` endpoint
-@app.get("/")
-def index():
-    return {"ok": True}
 
 @app.get("/")
 def index():
@@ -28,5 +25,5 @@ def predict(answers):
     return {"prediction": y_pred[0]}
 
 def X_pred_transform(answers):
-    X_pred = pd.DataFrame(answers)
+    X_pred = pd.DataFrame({'posts': answers})
     return X_pred

@@ -37,7 +37,7 @@ class Trainer(object):
             (TextCleaner('posts'), ['posts']))
 
         self.pipeline = make_pipeline(transformer,
-                                      XGBClassifier(max_depth=3,
+                                      XGBClassifier(gpu_id=0,tree_method='gpu_hist', max_depth=3,
                                                     n_estimators=300,
                                                     learning_rate=0.05))
 
