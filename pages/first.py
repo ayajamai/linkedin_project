@@ -5,7 +5,7 @@ from pages import second
 def app():
 
     st.title('What is your personality ?')
-    st.header('Let us guess your personality in a few words')
+    st.header('Let us guess your personality in a few words blabla')
 
     st.subheader('The concept :')
 

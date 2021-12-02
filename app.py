@@ -5,6 +5,7 @@ import numpy as np
 from multipage import MultiPage
 from pages import first, second, third, fourth, result # import your pages here
 
+#blabla
 # Create an instance of the app
 app = MultiPage()
 
