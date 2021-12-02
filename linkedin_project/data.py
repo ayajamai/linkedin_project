@@ -11,5 +11,7 @@ def get_data_from_gcp(nrows=10000, optimize=False, **kwargs):
     df = pd.read_csv(path, nrows=nrows)
     return df
 
+# TO DOOOO
+
 if __name__ == '__main__':
     df = get_data_from_gcp()
