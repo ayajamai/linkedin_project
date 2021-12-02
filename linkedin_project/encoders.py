@@ -10,7 +10,7 @@ import numpy as np
 import string
 import re
 
-#vocab
+
 class VocabReachness(TransformerMixin, BaseEstimator):
     '''
     Creates a new feature based on the variety of words used by each post
