@@ -105,7 +105,6 @@ if __name__ == "__main__":
     # Get and clean data
     N = 100
     df = get_data_from_gcp(nrows=N)
-    df = clean_data(df)
     y = df["type"]
     X = df.drop("type", axis=1)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)

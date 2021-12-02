@@ -1,3 +1,46 @@
+# path of the file to upload to gcp (the path of the file should be absolute or should match the directory where the make command is run)
+LOCAL_PATH=merged.csv
+# project id
+PROJECT_ID=lewagonbootcamp-332414
+# bucket name
+BUCKET_NAME=wagon-data-batch_713-jamai
+# bucket directory in which to store the uploaded file (we choose to name this data as a convention)
+BUCKET_FOLDER=data
+# name for the uploaded file inside the bucket folder (here we choose to keep the name of the uploaded file)
+# BUCKET_FILE_NAME=another_file_name_if_I_so_desire.csv
+BUCKET_FILE_NAME=$(shell basename ${LOCAL_PATH})
+REGION=europe-west1
+set_project:
+	-@gcloud config set project ${PROJECT_ID}
+create_bucket:
+	-@gsutil mb -l ${REGION} -p ${PROJECT_ID} gs://${BUCKET_NAME}
+upload_data:
+	-@gsutil cp ${LOCAL_PATH} gs://${BUCKET_NAME}/${BUCKET_FOLDER}/${BUCKET_FILE_NAME}
+### GCP configuration - - - - - - - - - - - - - - - - - - -
+# /!\ you should fill these according to your account
+### GCP Project - - - - - - - - - - - - - - - - - - - - - -
+# not required here
+### GCP Storage - - - - - - - - - - - - - - - - - - - - - -
+# BUCKET_NAME=XXX
+##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
+# not required here
+##### Training  - - - - - - - - - - - - - - - - - - - - - -
+# will store the packages uploaded to GCP for the training
+BUCKET_TRAINING_FOLDER = 'trainings'
+##### Model - - - - - - - - - - - - - - - - - - - - - - - -
+# not required here
+### GCP AI Platform - - - - - - - - - - - - - - - - - - - -
+##### Machine configuration - - - - - - - - - - - - - - - -
+# REGION=europe-west1
+PYTHON_VERSION=3.7
+FRAMEWORK=scikit-learn
+RUNTIME_VERSION=2.2
+##### Package params  - - - - - - - - - - - - - - - - - - -
+PACKAGE_NAME=linkedin_project
+FILENAME=trainer
+##### Job - - - - - - - - - - - - - - - - - - - - - - - - -
+JOB_NAME=linkedin_project_training_pipeline_$(shell date +'%Y%m%d_%H%M%S')
+
 # ----------------------------------
 #          INSTALL & TEST
 # ----------------------------------
