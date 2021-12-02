@@ -1,7 +1,4 @@
 from textblob import TextBlob
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 from sklearn.base import TransformerMixin, BaseEstimator
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -9,6 +6,16 @@ import pandas as pd
 import numpy as np
 import string
 import re
+
+import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+from nltk.corpus import stopwords
+from nltk import word_tokenize
+from nltk.stem import WordNetLemmatizer
+from nltk import word_tokenize
 
 
 class VocabReachness(TransformerMixin, BaseEstimator):
