@@ -14,8 +14,10 @@ from linkedin_project.gcp import storage_upload
 import pandas as pd
 import joblib
 
+#trainer starts
+
 class Trainer(object):
-    def __init__(self, X, y, random_search=False):
+    def __init__(self, X, y):
         """
             X: pandas DataFrame
             y: pandas Series
@@ -23,7 +25,6 @@ class Trainer(object):
         self.pipeline = None
         self.X = X
         self.y = y
-        self.random_search = random_search
 
     def set_pipeline(self):
         """defines the pipeline as a class attribute"""
@@ -81,15 +82,12 @@ class Trainer(object):
                                verbose=3,
                                random_state=1001))
 
-        self.pipeline = random_search.fit(self.X, self.y)
+        search = random_search.fit(self.X, self.y)
+        return search.best_params_
 
     def run(self):
-        if self.random_search == True:
-            self.set_random_search()
-            self.pipeline.fit(self.X, self.y)
-        else:
-            self.set_pipeline()
-            self.pipeline.fit(self.X, self.y)
+        self.set_pipeline()
+        self.pipeline.fit(self.X, self.y)
 
     def evaluate(self, X_test, y_test):
         """evaluates the pipeline on df_test and return the accuracy"""
@@ -107,6 +105,7 @@ if __name__ == "__main__":
     # Get and clean data
     N = 100
     df = get_data_from_gcp(nrows=N)
+    df = clean_data(df)
     y = df["type"]
     X = df.drop("type", axis=1)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
