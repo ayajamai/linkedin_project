@@ -1,6 +1,7 @@
 import streamlit as st
 from pages import second
 
+
 class MultiPage:
     """Framework for combining multiple streamlit applications."""
 
