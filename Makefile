@@ -1,9 +1,9 @@
 # path of the file to upload to gcp (the path of the file should be absolute or should match the directory where the make command is run)
 LOCAL_PATH=merged.csv
 # project id
-PROJECT_ID=lewagonbootcamp-332414
+PROJECT_ID=le-wagon-batch-713
 # bucket name
-BUCKET_NAME=wagon-data-batch_713-jamai
+BUCKET_NAME=wagon-data-713-velasquez
 # bucket directory in which to store the uploaded file (we choose to name this data as a convention)
 BUCKET_FOLDER=data
 # name for the uploaded file inside the bucket folder (here we choose to keep the name of the uploaded file)
@@ -108,6 +108,8 @@ gcp_submit_training:
 		--python-version=${PYTHON_VERSION} \
 		--runtime-version=${RUNTIME_VERSION} \
 		--region ${REGION} \
+		--scale-tier custom \
+		--master-machine-type n1-highmem-32 \
 		--stream-logs
 
 run_api:

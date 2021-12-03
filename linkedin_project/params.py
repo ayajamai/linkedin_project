@@ -12,14 +12,14 @@ PATH_TO_LOCAL_MODEL = 'model.joblib'
 
 ### GCP Storage - - - - - - - - - - - - - - - - - - - - - -
 
-BUCKET_NAME = 'wagon-data-batch_713-jamai'
+BUCKET_NAME = 'wagon-data-713-velasquez'
 
 ##### Data  - - - - - - - - - - - - - - - - - - - - - - - -
 
 # train data file location
 # /!\ here you need to decide if you are going to train using the provided and uploaded data/train_1k.csv sample file
 # or if you want to use the full dataset (you need need to upload it first of course)
-BUCKET_TRAIN_DATA_PATH = 'data/merged.csv'
+BUCKET_TRAIN_DATA_PATH = 'data/mbti_1.csv'
 
 ##### Training  - - - - - - - - - - - - - - - - - - - - - -
 
@@ -28,10 +28,10 @@ BUCKET_TRAIN_DATA_PATH = 'data/merged.csv'
 ##### Model - - - - - - - - - - - - - - - - - - - - - - - -
 
 # model folder name (will contain the folders for all trained model versions)
-MODEL_NAME = 'mbti predictor'
+MODEL_NAME = 'mbti_predictor_first_dataset_v2'
 
 # model version folder name (where the trained model.joblib file will be stored)
-MODEL_VERSION = 'v1'
+MODEL_VERSION = 'v2'
 
 ### GCP AI Platform - - - - - - - - - - - - - - - - - - - -
 

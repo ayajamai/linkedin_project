@@ -113,10 +113,7 @@ class TextCleaner(TransformerMixin, BaseEstimator):
     def fit(self, X, y=None):
         X = X[self.column]
         cleaned = X.apply(self.clean)
-        self.vectorizer = TfidfVectorizer(ngram_range=(3, 3),
-                                          min_df=0,
-                                          max_df=0.9,
-                                          max_features=5000)
+        self.vectorizer = TfidfVectorizer(max_features=5000)
         X_bow = self.vectorizer.fit(cleaned)
         return self
 
