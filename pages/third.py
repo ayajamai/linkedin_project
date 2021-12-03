@@ -10,3 +10,4 @@ def app():
     with st.form(key='my_form'):
             first_input = st.text_input(label='Comment')
             submit_button = st.form_submit_button(label='Publish')
+    return first_input
