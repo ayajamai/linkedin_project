@@ -23,6 +23,4 @@ def app():
 
     df
 
-    option = st.selectbox(
-        'Take a guess about your personality type before the test :',
-        df['Personality type'])
+    return 'nothing'

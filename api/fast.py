@@ -22,7 +22,6 @@ def predict(answers):
         y_pred = pipeline.best_estimator_.predict(df_test)
     else:
         y_pred = pipeline.predict(df_test)
-    print(y_pred)
     return {"prediction": str(y_pred[0])}
 
 def X_pred_transform(answers):
