@@ -22,7 +22,7 @@ def predict(answers):
     else:
         y_pred = pipeline.predict(df_test)
 
-    return {"prediction": y_pred[0]}
+    return {"prediction": str(y_pred[0])}
 
 def X_pred_transform(answers):
     X_pred = pd.DataFrame({'posts': answers})

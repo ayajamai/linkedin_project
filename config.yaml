@@ -1,0 +1,9 @@
+trainingInput:
+  scaleTier: CUSTOM
+  masterType: n1-highcpu-32
+  workerType: n1-highcpu-32
+  parameterServerType: n1-highmem-32
+  evaluatorType: n1-highcpu-32
+  workerCount: 9
+  parameterServerCount: 3
+  evaluatorCount: 1

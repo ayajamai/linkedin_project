@@ -104,13 +104,18 @@ class Trainer(object):
 if __name__ == "__main__":
     # Get and clean data
     N = 100
+    print('df info')
     df = get_data_from_gcp(nrows=N)
+    print('info on the memory', df.shape)
     y = df["type"]
     X = df.drop("type", axis=1)
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+    print('holdout executed')
     # Train and save model, locally and
     trainer = Trainer(X=X_train, y=y_train)
+    print('training model')
     trainer.run()
+    print('evaluating')
     acc = trainer.evaluate(X_test, y_test)
     print(f"Accuracy: {acc}")
     trainer.save_model_locally()
